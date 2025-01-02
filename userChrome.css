@@ -1,0 +1,141 @@
+/* all the userChrome.css styles by @turtureanu */
+/* Licensed under the MPLv2: https://www.mozilla.org/en-US/MPL/2.0/ */
+
+/* === SIDEBAR === */
+
+/* Hide sidebar header */
+#sidebar-header {
+  display: none;
+}
+
+/* === TOP NAVIGATION === */
+
+/* tabs at the top */
+#TabsToolbar {
+  display: none;
+}
+
+/* Put the "bookmarks" toolbar on top of the URL bar (#nav-bar) */
+#PersonalToolbar {
+  order: -1;
+  width: fit-content; /* don't occupy a lot of space */
+  margin: 0.25em auto 0 auto !important; /* align the items to the center */
+  padding-top: 0.25em !important;
+  border-radius: 0.75rem 0.75rem 0 0;
+}
+
+/* make the bookmark items round (bookmark toolbar) */
+.bookmark-item {
+  padding: 0.375em 0.5em !important;
+  margin-top: 0.5em;
+  border-radius: 0.5rem !important;
+}
+
+/* === URL bar === */
+
+/* URL bar height */
+#urlbar-container {
+  --urlbar-container-height: 38px !important;
+}
+
+/* URL bar radius */
+#urlbar-background {
+  border-radius: 1.5rem !important;
+}
+
+/* URL bar radius when opened (search) */
+#urlbar[breakout-extend="true"] #urlbar-background {
+  border-radius: 1rem !important;
+}
+
+/* Make the URL bar icons (actions, e.g. bookmark, reader mode) fit */
+#page-action-buttons * {
+  margin: 0 0px 0 0px;
+  border-radius: 100rem !important;
+}
+
+/* push the left element to the center */
+.urlbar-input-container {
+  padding-left: 1px !important;
+}
+
+/* make every icon round (including the padlock one) */
+.urlbar-input-container > *,
+#identity-icon-box {
+  border-radius: 100rem !important;
+}
+
+/* the last page action should have a smaller right margin */
+#nav-bar-customization-target #page-action-buttons *:last-child {
+  margin-right: 0px;
+}
+
+/* fix bookmark star looking weird */
+#star-button[starred] {
+  fill: currentColor !important;
+}
+
+/* === TOOLBAR BUTTON BORDER-RADIUS HOVER HACK === */
+/* makes the toolbar buttons be a circle on hover */
+
+/* get rid of the hover background image of the toolbar icons */
+toolbar .toolbarbutton-1 {
+  &:not([disabled]) {
+    &:hover
+      > :is(
+        .toolbarbutton-icon,
+        .toolbarbutton-text,
+        .toolbarbutton-badge-stack
+      ) {
+      background-color: transparent !important;
+    }
+  }
+}
+
+/* get rid of the hover background image of the toolbar icons (:active) */
+toolbar .toolbarbutton-1 {
+  &:not([disabled]) {
+    &:is(:hover:active, [open], [checked])
+      > :is(
+        .toolbarbutton-icon,
+        .toolbarbutton-text,
+        .toolbarbutton-badge-stack
+      ) {
+      background-color: transparent !important;
+    }
+  }
+}
+
+/* add the hovering effect to the toolbarbutton using an outline offset hack*/
+#PanelUI-menu-button:hover,
+#PanelUI-menu-button:focus,
+#PanelUI-menu-button:active,
+#nav-bar-customization-target toolbarbutton:hover,
+#nav-bar-customization-target toolbarbutton:focus,
+#nav-bar-customization-target toolbarbutton:active {
+  outline: solid 1rem var(--toolbarbutton-hover-background);
+  border-radius: 100rem;
+  outline-offset: -100rem;
+}
+
+/* fix hovering icons being displaced (first element in navbar) */
+#nav-bar-customization-target {
+  & > :is(toolbarbutton, toolbaritem):first-child,
+  & > toolbarpaletteitem:first-child > :is(toolbarbutton, toolbaritem) {
+    padding-inline-start: 2px !important;
+    margin-left: 0.125em !important;
+  }
+}
+
+/* fix hovering icons being displaced (last element in navbar) */
+#PanelUI-menu-button {
+  padding-inline-end: 2px !important;
+}
+
+/* fix hovering label looking weird in the zoom button */
+#nav-bar-customization-target #zoom-reset-button {
+  outline-width: 14px;
+  outline-offset: -16px;
+  margin-left: 2px !important;
+  margin-right: 2px !important;
+}
