@@ -1,0 +1,42 @@
+#root.root {
+  --tabs-margin: 4px;
+}
+#root.root {
+  --tabs-height: 36px;
+}
+#root.root {
+  --general-border-radius: 5px;
+  --toolbar-bg: transparent;
+  --tabs-border-radius: 1.25rem !important;
+  --tabs-inner-gap: 10px;
+}
+
+#nav_bar {
+  border-radius: 1.25rem;
+  padding: 0.25rem;
+  padding-bottom: 0.075rem;
+}
+
+#nav_bar * > * {
+  border-radius: 100rem;
+}
+
+.Tab .body {
+  padding: 0.5rem 0 !important;
+}
+
+.BottomBar {
+  padding: 0.25rem;
+}
+
+.TabsPanel .bottom-bar-space {
+  height: calc(var(--tabs-height) + var(--general-margin) + 0.375rem);
+}
+
+.Sidebar .tool-btn::before {
+  border-radius: 100rem !important;
+}
+
+.TabsPanel {
+  padding: 0.25rem 0;
+}

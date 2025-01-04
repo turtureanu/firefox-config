@@ -8,11 +8,58 @@
   display: none;
 }
 
+/* Hide sidebar splitter */
+#sidebar-splitter {
+  display: none;
+}
+
+:root {
+  --contracted-sidebar-width: 5rem;
+  --expanded-sidebar-width: 12.5rem;
+}
+
+#sidebar-box {
+  background-color: var(--toolbar-bgcolor) !important;
+  max-width: var(--expanded-sidebar-width) !important;
+  min-width: unset !important;
+}
+
+#sidebar {
+  border-radius: 1.25rem !important;
+  margin: 0 0.2em 0.2em 0.2em;
+}
+
+#webext-panels-browser {
+  background-color: rgb(35, 34, 43);
+  padding: 0 !important;
+}
+
+/* === MAIN BROWSER WINDOW === */
+
+/* Make the page have round borders */
+.browserContainer > * > * {
+  margin: 0 0.2em 0.2em 0 !important;
+  border-radius: 1rem;
+}
+
+.browserContainer > * {
+  background-color: var(--toolbar-bgcolor);
+}
+
 /* === TOP NAVIGATION === */
+
+#nav-bar {
+  border-top: none !important; /*remove line between bookmakrs toolbar and URL bar*/
+}
+
+:root {
+  --chrome-content-separator-color: none !important; /*remove shadow between URL bar and page*/
+}
 
 /* tabs at the top */
 #TabsToolbar {
   display: none;
+  border-bottom: none !important; /* remove line between URL bar and page*/
 }
 
 /* Put the "bookmarks" toolbar on top of the URL bar (#nav-bar) */
@@ -50,7 +97,7 @@
 
 /* Make the URL bar icons (actions, e.g. bookmark, reader mode) fit */
 #page-action-buttons * {
-  margin: 0 0px 0 0px;
+  margin: 0;
   border-radius: 100rem !important;
 }
 
@@ -61,8 +108,13 @@
 
 /* make every icon round (including the padlock one) */
 .urlbar-input-container > *,
-#identity-icon-box {
+#identity-icon-box,
+#identity-permission-box {
   border-radius: 100rem !important;
+}
+
+#tracking-protection-icon-container {
+  margin-right: 2px !important;
 }
 
 /* the last page action should have a smaller right margin */
@@ -128,10 +180,13 @@ toolbar .toolbarbutton-1 {
 }
 
 /* fix hovering icons being displaced (last element in navbar) */
-#PanelUI-menu-button {
-  padding-inline-end: 2px !important;
+#PanelUI-button {
+  margin-right: 4px !important;
 }
 
+#PanelUI-menu-button {
+  padding-inline-end: 1px !important;
+}
 /* fix hovering label looking weird in the zoom button */
 #nav-bar-customization-target #zoom-reset-button {
   outline-width: 14px;
@@ -139,3 +194,5 @@ toolbar .toolbarbutton-1 {
   margin-left: 2px !important;
   margin-right: 2px !important;
 }
+
+/* TODO: findbar */
