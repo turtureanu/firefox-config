@@ -1,10 +1,11 @@
 /* all the userChrome.css styles by @turtureanu */
 /* Licensed under the MPLv2: https://www.mozilla.org/en-US/MPL/2.0/ */
 
-/* === SIDEBAR === */
+/* === SIDEBERY === */
 
 /* Hide sidebar header */
-#sidebar-header {
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]
+  #sidebar-header {
   display: none;
 }
 
@@ -14,19 +15,47 @@
 }
 
 :root {
-  --contracted-sidebar-width: 5rem;
+  --contracted-sidebar-width: 2.625rem;
   --expanded-sidebar-width: 12.5rem;
+  --sidebar-margin: 0.2em;
 }
 
-#sidebar-box {
+/* collapsed width + z-index */
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] {
   background-color: var(--toolbar-bgcolor) !important;
-  max-width: var(--expanded-sidebar-width) !important;
-  min-width: unset !important;
+  width: calc(
+    var(--contracted-sidebar-width) + var(--sidebar-margin) * 2
+  ) !important;
+  max-width: calc(
+    var(--contracted-sidebar-width) + var(--sidebar-margin) * 2
+  ) !important;
+  min-width: calc(
+    var(--contracted-sidebar-width) + var(--sidebar-margin) * 2
+  ) !important;
+  z-index: 100;
 }
 
-#sidebar {
+/* non-hover (collapsed) */
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]
+  #sidebar {
+  background-color: var(--toolbar-bgcolor) !important;
+  width: var(--contracted-sidebar-width) !important;
+  min-width: var(--contracted-sidebar-width) !important;
+  z-index: 200;
+  transition: all 150ms ease-in-out;
+}
+
+/* on hover expand */
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]
+  #sidebar:hover {
+  width: var(--expanded-sidebar-width) !important;
+  z-index: 100;
+}
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]
+  #sidebar {
   border-radius: 1.25rem !important;
-  margin: 0 0.2em 0.2em 0.2em;
+  margin: 0 var(--sidebar-margin) var(--sidebar-margin) !important;
 }
 
 #webext-panels-browser {

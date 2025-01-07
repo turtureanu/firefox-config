@@ -1,32 +1,54 @@
-#root.root {
-  --tabs-margin: 4px;
-}
-#root.root {
-  --tabs-height: 36px;
-}
+/* Unless otherwise stated the following code is authored by @turtureanu */
+/* And subsequently licensed under the MPLv2: https://www.mozilla.org/en-US/MPL/2.0/ */
+
 #root.root {
   --general-border-radius: 5px;
   --toolbar-bg: transparent;
   --tabs-border-radius: 1.25rem !important;
-  --tabs-inner-gap: 10px;
+  --tabs-inner-gap: 8px;
+  --tabs-height: 34px;
+  --tabs-margin: 4px;
 }
 
+/*  top nav bar */
 #nav_bar {
   border-radius: 1.25rem;
-  padding: 0.25rem;
-  padding-bottom: 0.075rem;
+  padding: 0.25rem 0.25rem 0.075rem 0.375rem;
 }
 
+/* make the items in the navbar round */
 #nav_bar * > * {
   border-radius: 100rem;
+  transition-delay: 0;
+}
+
+/* don't wrap nav bar items */
+.NavigationBar .main-items {
+  flex-wrap: nowrap;
 }
 
 .Tab .body {
   padding: 0.5rem 0 !important;
 }
 
+/* use a container-query for styling the collapsed sidebar */
+.panel-box {
+  container-type: size;
+  container-name: tab-collapsed;
+}
+
+@container tab-collapsed (max-width: 4rem) {
+  .Tab .body .close {
+    display: none;
+  }
+
+  .Tab {
+    padding-left: 0 !important;
+  }
+}
+
 .BottomBar {
-  padding: 0.25rem;
+  padding: 0.25rem 6px;
 }
 
 .TabsPanel .bottom-bar-space {
@@ -35,6 +57,10 @@
 
 .Sidebar .tool-btn::before {
   border-radius: 100rem !important;
+}
+
+.Sidebar .Tab .body .fav {
+  margin-left: 9.25px;
 }
 
 .TabsPanel {
