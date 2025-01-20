@@ -100,6 +100,33 @@
   border-radius: 0.75rem 0.75rem 0 0;
 }
 
+#PlacesToolbar {
+  width: 75vw;
+}
+
+#PlacesToolbar toolbarbutton.bookmark-item {
+  visibility: visible !important;
+  z-index: 110;
+}
+
+#PlacesChevron {
+  position: relative;
+  cursor: pointer;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 100;
+  padding-left: 0.25em !important;
+}
+
+#PlacesChevron::before {
+  z-index: 90;
+  position: absolute;
+  margin-left: -110px;
+  padding: 999px 40px;
+  content: "";
+  background: linear-gradient(to right, transparent, #15151540);
+}
+
 /* make the bookmark items round (bookmark toolbar) */
 .bookmark-item {
   padding: 0.375em 0.5em !important;
