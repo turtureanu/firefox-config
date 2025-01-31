@@ -252,17 +252,20 @@ toolbar .toolbarbutton-1 {
 findbar {
   border-top: 0 !important;
   border-radius: 1rem;
+  padding: 0 !important;
+  padding-bottom: 4px !important;
 }
 
 findbar .findbar-container {
   border-radius: 0 !important;
   margin: 0 !important;
-  padding-left: 4px;
-  padding-bottom: 20px;
+  height: 32px !important;
+  padding-left: 0 !important;
 }
 
 .findbar-textbox {
-  padding: 5px 12px !important;
+  padding: 4px 12px !important;
+  margin-left: 0 !important;
   border-radius: 5rem !important;
 }
 
