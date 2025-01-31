@@ -27,11 +27,24 @@
   flex-wrap: nowrap;
 }
 
+/* don't wrap pinned tabs*/
+.PinnedTabsBar {
+  flex-wrap: nowrap !important;
+}
+
+.PinnedTabsBar .Tab {
+  width: calc(var(--tabs-height) + var(--tabs-margin) - 6px);
+  height: calc(var(--tabs-height) + var(--tabs-margin) - 6px);
+}
+
+.PinnedTabsBar .Tab .fav {
+  margin: 0 var(--tabs-inner-gap) 0 calc(var(--tabs-inner-gap) + 2px);
+}
+
 .Tab .body {
   padding: 0.5rem 0 !important;
 }
 
-/* use a container-query for styling the collapsed sidebar */
 .panel-box {
   container-type: size;
   container-name: tab-collapsed;

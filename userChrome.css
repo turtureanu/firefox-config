@@ -101,7 +101,19 @@
 }
 
 #PlacesToolbar {
-  width: 75vw;
+  max-width: 75vw;
+  height: 2.25rem;
+}
+
+#PlacesToolbarItems {
+  overflow-x: scroll;
+  height: 2.25rem;
+  scrollbar-width: 2px;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+#PlacesToolbarItems:hover {
+  scrollbar-width: 2px !important;
 }
 
 #PlacesToolbar toolbarbutton.bookmark-item {
@@ -110,21 +122,7 @@
 }
 
 #PlacesChevron {
-  position: relative;
-  cursor: pointer;
-  margin: 0 !important;
-  padding: 0 !important;
-  z-index: 100;
-  padding-left: 0.25em !important;
-}
-
-#PlacesChevron::before {
-  z-index: 90;
-  position: absolute;
-  margin-left: -110px;
-  padding: 999px 40px;
-  content: "";
-  background: linear-gradient(to right, transparent, #15151540);
+  display: none;
 }
 
 /* make the bookmark items round (bookmark toolbar) */
@@ -251,4 +249,30 @@ toolbar .toolbarbutton-1 {
   margin-right: 2px !important;
 }
 
-/* TODO: findbar */
+findbar {
+  border-top: 0 !important;
+  border-radius: 1rem;
+}
+
+findbar .findbar-container {
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding-left: 4px;
+  padding-bottom: 20px;
+}
+
+.findbar-textbox {
+  padding: 5px 12px !important;
+  border-radius: 5rem !important;
+}
+
+.browserContainer .findbar-closebutton {
+  border-radius: 100rem !important;
+  width: 28px !important;
+  height: 28px !important;
+  margin: auto 6px auto 0 !important;
+}
+
+.findbar-closebutton .toolbarbutton-icon {
+  padding: 6px !important;
+}
